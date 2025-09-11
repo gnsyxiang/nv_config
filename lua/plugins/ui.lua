@@ -7,5 +7,17 @@ return {
         config = function()
             require("plugins.configs.gruvbox")
         end,
-    }
+    },
+    {
+        url = "git@github.com:lukas-reineke/indent-blankline.nvim",
+        version = "3.9.0",
+        event = {
+            "BufReadPost",
+            "BufNewFile"
+        },
+        main = "ibl",
+        config = function()
+            require("plugins.configs.indent-blankline")
+        end,
+    },
 }
