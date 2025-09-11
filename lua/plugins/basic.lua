@@ -15,7 +15,16 @@ return {
             { "<A-n>", "<cmd>NvimTreeToggle<CR>", desc = "切换文件树" }
         },
         config = function()
-            require("plugins.configs.nvim-tree")  -- 加载配置文件
+            require("plugins.configs.nvim-tree")
+        end,
+    },
+    {
+        url = "git@github.com:nvim-lualine/lualine.nvim",
+        dependencies = {
+            url = "git@github.com:nvim-tree/nvim-web-devicons"
+        },
+        config = function()
+            require("plugins.configs.lualine")
         end,
     },
 }
