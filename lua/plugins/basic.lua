@@ -6,7 +6,7 @@ return {
     },
     {
         url = "git@github.com:nvim-tree/nvim-tree.lua",
-        version = "v1.14.0",
+        tag = "v1.14.0",
         dependencies = {
             url = "git@github.com:nvim-tree/nvim-web-devicons"
         },
@@ -28,3 +28,4 @@ return {
         end,
     },
 }
+
