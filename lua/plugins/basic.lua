@@ -27,5 +27,23 @@ return {
             require("plugins.configs.lualine")
         end,
     },
+    {
+        url = "git@github.com:kylechui/nvim-surround",
+        version = "^3.0.0",
+        event = "VeryLazy",
+        config = function()
+            require("nvim-surround").setup({})
+        end
+    },
+    {
+        url = "git@github.com:gcmt/wildfire.vim",
+    },
+    {
+        url = "git@github.com:windwp/nvim-autopairs",
+        event = "InsertEnter",
+        config = true
+        -- use opts = {} for passing setup options
+        -- this is equivalent to setup({}) function
+    },
 }
 
