@@ -104,5 +104,13 @@ return {
             require("plugins.configs.lsp")
         end,
     },
+    {
+        url = "git@github.com:nvim-treesitter/nvim-treesitter",
+        tag = "v0.10.0",
+        build = ":TSUpdate",  -- 首次安装后自动更新语法解析器
+        config = function()
+            require("plugins.configs.nvim-treesitter")
+        end,
+    },
 }
 
