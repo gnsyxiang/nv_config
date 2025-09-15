@@ -112,5 +112,23 @@ return {
             require("plugins.configs.nvim-treesitter")
         end,
     },
+    {
+        url = "git@github.com:nvim-telescope/telescope.nvim",
+        tag = "0.1.8",
+        dependencies = {
+            { url = "git@github.com:nvim-lua/plenary.nvim"},
+            { url = "git@github.com:nvim-tree/nvim-web-devicons"}, -- 可选（用于图标支持）
+
+            { url = "git@github.com:nvim-telescope/telescope-fzf-native.nvim", build = "make" },    -- 性能优化扩展
+            { url = "git@github.com:nvim-telescope/telescope-ui-select.nvim"},      -- UI 选择扩展
+            {
+                url = "git@github.com:debugloop/telescope-undo.nvim", -- 撤销历史扩展
+                config = function() vim.keymap.set("n", "<leader>fu", "<cmd>Telescope undo<cr>", { desc = "Undo History" }) end,
+            },
+        },
+        config = function()
+            require("plugins.configs.telescope")
+        end
+    },
 }
 
