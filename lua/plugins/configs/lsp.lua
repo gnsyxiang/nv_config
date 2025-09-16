@@ -45,18 +45,6 @@ if status then
     capabilities = cmp_nvim_lsp.default_capabilities()
 end
 
--- lspconfig.clangd.setup({
---     capabilities = capabilities,
---     cmd = {
---         "clangd",
---         "--background-index",
---         "--suggest-missing-includes",
---         "--clang-tidy",
---         "--header-insertion=iwyu",
---     },
--- })
-
-
 local install_servers = {
     "lua_ls",        -- Lua
     -- "pyright",       -- Python
@@ -80,6 +68,17 @@ mason_lspconfig.setup({
     automatic_installation = true,
 })
 
+-- lspconfig.clangd.setup({
+--     capabilities = capabilities,
+--     cmd = {
+--         "clangd",
+--         "--background-index",           -- 在后台构建索引并持久化
+--         "--clang-tidy",                 -- 启用clang-tidy静态分析
+--         "--suggest-missing-includes",   -- 
+--         "--header-insertion=iwyu",
+--     },
+-- })
+--
 -- mason_lspconfig.setup({
 --     ensure_installed = {"clangd"},
 --     automatic_installation = true,
