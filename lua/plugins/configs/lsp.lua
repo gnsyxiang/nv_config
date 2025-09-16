@@ -58,7 +58,7 @@ end
 
 
 local install_servers = {
-    -- "lua_ls",        -- Lua
+    "lua_ls",        -- Lua
     -- "pyright",       -- Python
     -- "rust_analyzer", -- Rust
     -- "ts_ls",         -- TypeScript/JavaScript

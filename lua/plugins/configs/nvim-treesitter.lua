@@ -20,7 +20,7 @@ for _, config in pairs(parser_config) do
         if url:find("https://github.com/") then
             config.install_info.url = url:gsub("https://github.com/", "git@github.com:")
         elseif url:find("https://gitlab.com/") then
-            config.install_info.url = url:gsub("https://gitlab.com/", "git@gitlab.com:")
+            -- config.install_info.url = url:gsub("https://gitlab.com/", "git@gitlab.com:")
         end
     end
 end
@@ -56,11 +56,18 @@ require("nvim-treesitter.configs").setup({
 
     -- 确保安装的语言解析器
     ensure_installed = {
-        "c", "cpp", "bash"
-        -- "cmake", "css", "dockerfile", "go", "html",
-        -- "java", "javascript", "json", "json5", "jsonc", "lua", "markdown",
-        -- "markdown_inline", "python", "regex", "rust", "toml", "tsx",
-        -- "typescript", "vim", "vimdoc", "yaml",
+        "c", "cpp",  "c_sharp", "asm", "nasm", "objdump",
+        "bash", "vim", "vimdoc",
+        "json", "json5", "jsonc", "jsonnet", "hjson",
+        "markdown", "markdown_inline",
+        "toml", "yaml", "csv", "ini", "xml",
+        "git_config", "git_rebase", "gitattributes", "gitcommit", "gitignore",
+        "lua", "python",
+        "cmake", "make", "ninja",
+        "proto", "sql",
+        -- "css", "html", "dockerfile", "go",
+        -- "java", "regex", "rust", "tsx",
+        -- "typescript", "javascript",
     },
 
     -- 自动安装语言解析器
