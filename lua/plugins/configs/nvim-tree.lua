@@ -11,11 +11,13 @@ local function on_attach(bufnr)
     api.config.mappings.default_on_attach(bufnr)
 
     -- 自定义映射
-    vim.keymap.set('n', 'h', api.node.navigate.parent_close, opts('Close Directory'))
-    vim.keymap.set('n', 'l', api.node.open.edit,             opts('Open'))
+    vim.keymap.set('n', 'h',        api.node.navigate.parent_close,     opts('Close Directory'))
+    vim.keymap.set('n', 'l',        api.node.open.edit,                 opts('Open'))
 
-    vim.keymap.set('n', 'V', api.node.open.vertical,         opts('Open: Vertical Split'))
-    vim.keymap.set('n', 'H', api.node.open.horizontal,       opts('Open: Horizontal Split'))
+    vim.keymap.set('n', 'V',        api.node.open.vertical,             opts('Open: Vertical Split'))
+    vim.keymap.set('n', 'H',        api.node.open.horizontal,           opts('Open: Horizontal Split'))
+
+    vim.keymap.set("n", "<C-h>",    api.tree.toggle_hidden_filter,      opts("Toggle Filter: Dotfiles"))
 end
 
 local opts = {
