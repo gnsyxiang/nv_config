@@ -130,6 +130,17 @@ vim.cmd([[
     " set clipboard+=unnamedplus
 ]])
 
+vim.g.wildfire_objects = {
+    "i'",  -- 单引号内的内容
+    'i"',  -- 双引号内的内容
+    "i)",  -- 圆括号内的内容
+    "i]",  -- 方括号内的内容
+    "i>",  -- 括号内的内容
+    "i}",  -- 花括号内的内容
+    "ip",  -- 段落
+    "it"   -- 标签内的内容
+}
+
 -- 如果你希望特定文件类型使用不同设置
 vim.api.nvim_create_autocmd("FileType", {
   pattern = "make",
