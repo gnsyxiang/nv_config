@@ -1,5 +1,19 @@
 
 require("lspsaga").setup({
+    -- ui = {
+    --     -- 设置终端大小
+    --     size = {
+    --         width = 0.8,  -- 80% 屏幕宽度
+    --         height = 0.7, -- 70% 屏幕高度
+    --     },
+    -- },
+    -- terminal = {
+    --     position = "float", -- "vertical", "horizontal", "float"
+    --     size = {
+    --         width = 0.8,  -- 终端宽度
+    --         height = 0.7, -- 终端高度
+    --     },
+    -- },
     finder = {
         max_height = 0.5,           -- 查找器最大高度
         default = 'ref+imp',
