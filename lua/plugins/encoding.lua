@@ -141,5 +141,17 @@ return {
             require("plugins.configs.telescope")
         end
     },
+    {
+        url = "git@github.com:danymat/neogen",
+        tag = "2.20.0",
+        dependencies = {
+            url = "git@github.com:nvim-treesitter/nvim-treesitter",
+            url = "git@github.com:L3MON4D3/LuaSnip",
+        },
+        ft = { "cpp", "c", "h", "hpp", "python", "lua", "javascript", "typescript", "go"},
+        config = function()
+            require("plugins.configs.annotation")
+        end
+    },
 }
 
