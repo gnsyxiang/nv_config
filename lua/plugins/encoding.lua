@@ -63,81 +63,23 @@ return {
             require("plugins.configs.annotation")
         end
     },
-
     -- 用于触发代码片段的插件（可选但推荐）
     {
         url = "git@github.com:hrsh7th/nvim-cmp",
         dependencies = {
-            url = "git@github.com:hrsh7th/cmp-nvim-lsp",
+            { url = "git@github.com:hrsh7th/cmp-nvim-lsp"},
 
-            url = "git@github.com:hrsh7th/cmp-buffer",
-            url = "git@github.com:hrsh7th/cmp-path",
-            url = "git@github.com:hrsh7th/cmp-cmdline",
+            { url = "git@github.com:hrsh7th/cmp-buffer"},
+            { url = "git@github.com:hrsh7th/cmp-path"},
+            { url = "git@github.com:hrsh7th/cmp-cmdline"},
 
-            url = "git@github.com:L3MON4D3/LuaSnip",
-            url = "git@github.com:saadparwaiz1/cmp_luasnip",
+            { url = "git@github.com:L3MON4D3/LuaSnip"},
+            { url = "git@github.com:saadparwaiz1/cmp_luasnip"},
+
+            -- url = "git@github.com:rafamadriz/friendly-snippets",
         },
         config = function()
-            local cmp = require('cmp')
-            local luasnip = require('luasnip')
-
-            cmp.setup({
-                snippet = {
-                    expand = function(args)
-                        luasnip.lsp_expand(args.body)
-                    end,
-                },
-                mapping = cmp.mapping.preset.insert({
-                    ['<C-b>']       = cmp.mapping.scroll_docs(-4),
-                    ['<C-f>']       = cmp.mapping.scroll_docs(4),
-                    ['<C-Space>']   = cmp.mapping.complete(),
-                    ['<C-e>']       = cmp.mapping.abort(),
-                    ['<CR>']        = cmp.mapping.confirm({ select = true }),
-                    ['<Tab>']       = cmp.mapping(function(fallback)
-                        if cmp.visible() then
-                            cmp.select_next_item()
-                        elseif luasnip.expand_or_jumpable() then
-                            luasnip.expand_or_jump()
-                        else
-                            fallback()
-                        end
-                    end, { 'i', 's' }),
-                    ['<S-Tab>']     = cmp.mapping(function(fallback)
-                        if cmp.visible() then
-                            cmp.select_prev_item()
-                        elseif luasnip.jumpable(-1) then
-                            luasnip.jump(-1)
-                        else
-                            fallback()
-                        end
-                    end, { 'i', 's' }),
-                }),
-                sources = cmp.config.sources({
-                    { name = "nvim_lsp" },
-                    { name = "luasnip" },
-                    { name = "buffer" },
-                    { name = "path" },
-                })
-            })
-
-            -- 命令行自动补全设置
-            cmp.setup.cmdline({ '/', '?' }, {
-                mapping = cmp.mapping.preset.cmdline(),
-                sources = {
-                    { name = 'buffer' }
-                }
-            })
-
-            cmp.setup.cmdline(':', {
-                mapping = cmp.mapping.preset.cmdline(),
-                sources = cmp.config.sources(
-                    {
-                        { name = 'path' }
-                    }, {
-                        { name = 'cmdline' }
-                    }
-                )
-            })
+            require("plugins.configs.snippet")
         end
     },
 
@@ -146,42 +88,10 @@ return {
         url = "git@github.com:L3MON4D3/LuaSnip",
         build = "make install_jsregexp",
         dependencies = {
-            url = "git@github.com:rafamadriz/friendly-snippets"
+            { url = "git@github.com:rafamadriz/friendly-snippets"}
         },
         config = function()
-            -- require("luasnip").config.setup({})
-
-            require("luasnip").config.set_config({
-                history = true,
-                updateevents = "TextChanged,TextChangedI",
-            })
-            require("luasnip.loaders.from_vscode").lazy_load()
-
-
-            require("luasnip").config.setup({
-                -- 启用详细日志
-                history = true,
-                updateevents = "TextChanged,TextChangedI",
-                enable_autosnippets = true,
-                -- 存储日志到文件
-                store_selection_keys = "<Tab>",
-            })
-
-            -- 添加调试输出
-            vim.notify("Loading LuaSnip snippets...")
-
-            -- 尝试加载并捕获任何错误
-            local status, err = pcall(function()
-                require("luasnip.loaders.from_vscode").load({
-                    paths = { "~/.config/nvim/snippets" }
-                })
-            end)
-
-            if not status then
-                vim.notify("Error loading snippets: " .. tostring(err), vim.log.levels.ERROR)
-            else
-                vim.notify("Snippets loaded successfully")
-            end
+            require("luasnip").config.setup({})
 
             -- 在配置函数内添加自定义片段是安全的
             require("luasnip").add_snippets("c", {
@@ -189,6 +99,10 @@ return {
             })
 
             -- require("luasnip.loaders.from_lua").load({ paths = "~/.config/nvim/lua/snippets" })
+            -- 加载自定义的 VS Code 格式片段
+            require("luasnip.loaders.from_vscode").lazy_load({
+                paths = { "~/.config/nvim/snippets/" }
+            })
 
             -- 加载友好片段（可选）
             require("luasnip.loaders.from_vscode").lazy_load()
