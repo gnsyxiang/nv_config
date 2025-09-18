@@ -18,8 +18,8 @@ return {
         url = "git@github.com:nvimdev/lspsaga.nvim",
         event = "LspAttach", -- 在 LSP 附加到缓冲区时加载这个插件，实现延迟加载
         dependencies = {
-            url = "git@github.com:nvim-tree/nvim-web-devicons", -- 可选，但强烈推荐
-            url = "git@github.com:nvim-treesitter/nvim-treesitter", -- 可选，但同样推荐
+            { url = "git@github.com:nvim-tree/nvim-web-devicons" }, -- 可选，但强烈推荐
+            { url = "git@github.com:nvim-treesitter/nvim-treesitter" }, -- 可选，但同样推荐
         },
         config = function()
             require("plugins.configs.lspsaga")
@@ -55,8 +55,8 @@ return {
         url = "git@github.com:danymat/neogen",
         tag = "2.20.0",
         dependencies = {
-            url = "git@github.com:nvim-treesitter/nvim-treesitter",
-            url = "git@github.com:L3MON4D3/LuaSnip",
+            { url = "git@github.com:nvim-treesitter/nvim-treesitter" },
+            { url = "git@github.com:L3MON4D3/LuaSnip" },
         },
         ft = { "cpp", "c", "h", "hpp", "python", "lua", "javascript", "typescript", "go"},
         config = function()

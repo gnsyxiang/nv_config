@@ -20,7 +20,7 @@ return {
         },
         -- optional for floating window border decoration
         dependencies = {
-            url = "git@github.com:nvim-lua/plenary.nvim",
+            { url = "git@github.com:nvim-lua/plenary.nvim"},
         },
         -- setting the keybinding for LazyGit with 'keys' is recommended in
         -- order to load the plugin when the command is run for the first time

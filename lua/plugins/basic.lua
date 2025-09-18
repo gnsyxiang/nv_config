@@ -8,7 +8,7 @@ return {
         url = "git@github.com:nvim-tree/nvim-tree.lua",
         tag = "v1.14.0",
         dependencies = {
-            url = "git@github.com:nvim-tree/nvim-web-devicons"
+            {url = "git@github.com:nvim-tree/nvim-web-devicons"}
         },
         lazy = false,
         keys = {
@@ -21,7 +21,7 @@ return {
     {
         url = "git@github.com:nvim-lualine/lualine.nvim",
         dependencies = {
-            url = "git@github.com:nvim-tree/nvim-web-devicons"
+            {url = "git@github.com:nvim-tree/nvim-web-devicons"}
         },
         config = function()
             require("plugins.configs.lualine")
