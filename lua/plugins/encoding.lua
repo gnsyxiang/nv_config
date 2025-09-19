@@ -86,38 +86,25 @@ return {
     -- LuaSnip 代码片段引擎
     {
         url = "git@github.com:L3MON4D3/LuaSnip",
+        tag = "v2.4.0",
         build = "make install_jsregexp",
         dependencies = {
             { url = "git@github.com:rafamadriz/friendly-snippets"}
         },
         config = function()
-            require("luasnip").config.setup({})
+            local luasnip = require("luasnip")
 
-            -- 在配置函数内添加自定义片段是安全的
-            require("luasnip").add_snippets("c", {
-                require("luasnip").parser.parse_snippet("test", "This is a test snippet"),
-            })
+            -- -- 添加自定义片段
+            -- luasnip.add_snippets("c", {
+            --     luasnip.parser.parse_snippet("test", "This is a test snippet"),
+            -- })
 
-            -- require("luasnip.loaders.from_lua").load({ paths = "~/.config/nvim/lua/snippets" })
-            -- 加载自定义的 VS Code 格式片段
             require("luasnip.loaders.from_vscode").lazy_load({
-                paths = { "~/.config/nvim/snippets/" }
+                paths = { vim.fn.stdpath("config") .. "/my_snippets" }
             })
 
-            -- 加载友好片段（可选）
+            -- 加载友好片段
             require("luasnip.loaders.from_vscode").lazy_load()
-
-            -- 在加载自定义片段前先清除现有片段
-            -- require("luasnip").snippets = {}
-            -- require("luasnip").snippet_cache = {}
-
-            -- 加载自定义的 VS Code 格式片段
-            -- require("luasnip.loaders.from_vscode").lazy_load({
-            --     paths = { "~/.config/nvim/snippets/test.json" }
-            -- })
-            -- require("luasnip.loaders.from_vscode").lazy_load({
-            --     paths = { "~/.config/nvim/snippets" }
-            -- })
         end,
     },
 }
