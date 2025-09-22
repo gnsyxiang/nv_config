@@ -34,7 +34,7 @@ end
 local options = {
     -- 用于指定打开文件的编码方式
     -- 用于指定Vim内部字符处理的编码方式
-    fileencoding = 'utf-8', 
+    fileencoding = 'utf-8',
     encoding = "utf-8",
     -- termencoding = "utf-8",
 
@@ -62,8 +62,8 @@ local options = {
 
     --查找时忽略大小写
     --智能大小写
-    ignorecase = true, 
-    smartcase = true, 
+    ignorecase = true,
+    smartcase = true,
 
     -- 搜索不要高亮
     -- 边输入边搜索
@@ -86,11 +86,11 @@ local options = {
     hidden = true,
 
     --右下角显示模式
-    showmode = true, 
+    showmode = true,
     conceallevel = 0,
 
     --如果安装第三方主题，必须设置为true
-    termguicolors = true, 
+    termguicolors = true,
 
     -- 是否显示不可见字符
     -- 不可见字符的显示，这里只把空格显示为一个点
@@ -98,7 +98,7 @@ local options = {
     --listchars = "space:·,tab:··",
 
     --允许鼠标
-    mouse = 'a', 
+    mouse = 'a',
 
     -- jkhl 移动时光标周围保留8行
     scrolloff = 8,
@@ -115,7 +115,7 @@ local options = {
     swapfile = false,
 
     --右下角显示命令
-    showcmd = true, 
+    showcmd = true,
 }
 --这里只列举基础的配置，更多选项可以在Vim中:set all查询
 
