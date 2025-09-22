@@ -45,5 +45,28 @@ return {
         -- use opts = {} for passing setup options
         -- this is equivalent to setup({}) function
     },
+    {
+        url = "git@github.com:folke/which-key.nvim",
+        event = "VeryLazy",
+        init = function()
+            vim.o.timeout = true
+            vim.o.timeoutlen = 300
+        end,
+        keys = {
+            {
+                "<leader>?",
+                function()
+                    require("which-key").show({ global = false })
+                end,
+                desc = "Buffer Local Keymaps (which-key)",
+            },
+        },
+        config = function()
+            local wk = require("which-key")
+            wk.setup({
+                show_help = true, -- 显示帮助信息
+            })
+        end,
+    },
 }
 
