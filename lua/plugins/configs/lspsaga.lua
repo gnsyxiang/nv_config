@@ -97,6 +97,7 @@ keymap("n", "<Leader>co",   "<cmd>Lspsaga outgoing_calls<CR>",          opts)
 
 -- 终端命令
 keymap("n", "<A-t>",        "<cmd>Lspsaga term_toggle<CR>",             opts)
+keymap("t", "<ESC>",        "<C-\\><C-n>",                              opts)
 
 -- 代码操作
 keymap({"n", "v"},  "<leader>ca", "<cmd>Lspsaga code_action<CR>",       opts)
