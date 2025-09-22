@@ -39,7 +39,7 @@ local options = {
     -- termencoding = "utf-8",
 
     -- 开启语法高亮
-    syntax = "enable",
+    syntax = "off",
 
     number = true,              -- 显示行号
     relativenumber = true,      -- 显示相对行号
