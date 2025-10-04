@@ -22,6 +22,10 @@ require("lazy").setup({
         { import = "plugins" },
     },
 
+    git = {
+        url_format = "git@github.com:%s.git"            -- 强制使用 SSH
+    },
+
     -- Configure any other settings here. See the documentation for more details.
     -- colorscheme that will be used when installing plugins.
     install = { colorscheme = { "habamax" } },
