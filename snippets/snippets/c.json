@@ -1,0 +1,139 @@
+{
+    "xtypedef": {
+        "prefix": ["xtypedef"],
+        "body": [
+            "typedef struct {",
+            "\t${2|hy_s32_t is_exit;|}",
+            "} $1;"
+        ],
+        "description": "create a typedef"
+    },
+
+    "xfor": {
+        "prefix": ["xfor"],
+        "body": [
+            "for (hy_s32_t ${2|i|} = 0; ${2} < ${1}; ${2}++) {",
+            "\t${3}",
+            "}"
+        ],
+        "description": "create a for"
+    },
+    "xif": {
+        "prefix": ["xif"],
+        "body": [
+            "if (${1}) {",
+            "}"
+        ],
+        "description": "create a if"
+    },
+
+    "xloges": {
+        "prefix": ["xloges"],
+        "body": [
+            "LOGES(\"$1\\n\");"
+        ],
+        "description": "create a loges"
+    },
+    "xloge": {
+        "prefix": ["xloge"],
+        "body": [
+            "LOGE(\"$1\\n\");"
+        ],
+        "description": "create a loge"
+    },
+    "xlogw": {
+        "prefix": ["xlogw"],
+        "body": [
+            "LOGW(\"$1\\n\");"
+        ],
+        "description": "create a logw"
+    },
+    "xlogi": {
+        "prefix": ["xlogi"],
+        "body": [
+            "LOGI(\"$1\\n\");"
+        ],
+        "description": "create a logi"
+    },
+    "xlogd": {
+        "prefix": ["xlogd"],
+        "body": [
+            "LOGD(\"$1\\n\");"
+        ],
+        "description": "create a logd"
+    },
+    "xlogt": {
+        "prefix": ["xlogt"],
+        "body": [
+            "LOGT(\"$1\\n\");"
+        ],
+        "description": "create a logt"
+    },
+
+    "inc": {
+        "prefix": ["inc"],
+        "body": [
+            "#include <${1|stdio.h|}>$2"
+        ],
+        "description": "create a include"
+    },
+    "xinc": {
+        "prefix": ["xinc"],
+        "body": [
+            "#include \"$1\"$2"
+        ],
+        "description": "create a include"
+    },
+
+    "xmain": {
+        "prefix": ["xmain"],
+        "body": [
+            "int main(int argc, char *argv[])",
+            "{",
+                "\t$1",
+                "\treturn 0;",
+            "}"
+        ],
+        "description": "create a main"
+    },
+    "xpthreadcb": {
+        "prefix": ["xpthreadcb"],
+        "body": [
+            "static void *_$1_loop_cb(void *args)",
+            "{",
+                "\t${2|_main_context_s *context = args;|}",
+                "\t$3",
+                "\treturn NULL;",
+            "}"
+        ],
+        "description": "create pthread cb"
+    },
+
+    "func": {
+        "prefix": ["func"],
+        "body": [
+            "${1|int,float,double,char,short,*|} $2()",
+            "{",
+                "\treturn $3;",
+                "}"
+
+        ],
+        "description": "create a function return int"
+    },
+
+    "doc-header": {
+        "prefix": ["doc-header"],
+        "body": [
+            "/**",
+            "* @file ${TM_FILENAME}",
+            "* @bref ${1}",
+            "* @details ${2}",
+            "* @date ${CURRENT_YEAR}/${CURRENT_MONTH}/${CURRENT_DATE}",
+            "* @commit history:",
+            "* \t v${3}: ${4}",
+            "*/${0}"
+
+        ],
+        "description": "create a doc header"
+    }
+}
