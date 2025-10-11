@@ -101,7 +101,7 @@ return {
 
                 -- 灯光 bulb（代码操作提示）
                 lightbulb = {
-                    enable = true,                  -- 启用
+                    enable = false,                  -- 启用
                     enable_in_insert = true,        -- 在插入模式启用
                     sign = true,                    -- 显示标记
                     sign_priority = 40,             -- 标记优先级
